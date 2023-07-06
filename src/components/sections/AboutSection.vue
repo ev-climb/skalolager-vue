@@ -1,7 +1,7 @@
 <template>
   <section class="about">
     <div class="info">
-      <div>
+      <div class="info-left">
         <div>
           <img src="" alt="" />
           <p>
@@ -16,7 +16,7 @@
           <button>Оставить заявку</button>
         </div>
       </div>
-      <div>
+      <div class="info-right">
         <h2>
           Что такое <span>Скало<b>Клуб</b></span>
         </h2>
@@ -53,6 +53,10 @@
     position: relative;
     overflow: hidden;
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     &::before {
       content: '';
       position: absolute;
@@ -64,20 +68,44 @@
       z-index: 0;
     }
     .info {
-      margin-left: 0 auto;
       display: flex;
       margin-top: 100px;
-      div {
+      width: 70%;
+      .info-left {
+        color: rgb(38, 67, 70);
+        font-size: 15px;
+
+        z-index: 1;
+        width: 40%;
+        margin-right: 50px;
+        div:first-of-type {
+          background-color: #c2ffff81;
+        }
+      }
+      .info-right {
         color: rgb(38, 67, 70);
         font-size: 15px;
         background-color: #c2ffff81;
         z-index: 1;
-        &:first-of-type {
-          width: 550px;
-          margin-right: 50px;
-        }
-        &:last-of-type {
-          width: 740px;
+        width: 60%;
+        margin-right: 50px;
+        text-align: center;
+
+        h2 {
+          font-size: 40px;
+          font-family: 'Rubic-light', sans-serif;
+          text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;
+          span {
+            font-family: 'Rubic', sans-serif;
+            font-size: 40px;
+            font-weight: 600;
+            b {
+              font-family: 'Rubic', sans-serif;
+              font-size: 40px;
+              font-weight: 600;
+              color: #f3ac09;
+            }
+          }
         }
       }
     }
