@@ -103,7 +103,7 @@
           b {
             font-size: 4vw;
             font-weight: 500;
-            color: #f3ac09;
+            color: $orange-color;
             transition: all 0.3s ease-in;
           }
         }

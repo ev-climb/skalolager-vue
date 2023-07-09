@@ -4,10 +4,11 @@
       <div class="info-left">
         <div>
           <p>
-            СкалоКлуб - это городские продлёнки для детей от 6 до 14 лет. В летние смены мы
-            организуем два отряда 6-8 лет и 9-14 лет. Режим работы клуба с 8:30 до 19:00 по будним
-            дням в школьные каникулы. СкалоКлуб подходит детям с разным уровнем физической
-            подготовки. Быть скалолазом необязательно - мы всё рассказываем и показываем на смене.
+            <span>Скало<b>Клуб</b></span> - это городские продлёнки для детей <b>от 6 до 14 лет</b>.
+            В летние смены мы организуем два отряда 6-8 лет и 9-14 лет. Режим работы клуба
+            <b>с 8:30 до 19:00</b> по будним дням в школьные каникулы.
+            <span>Скало<b>Клуб</b></span> подходит детям с разным уровнем физической подготовки.
+            Быть скалолазом необязательно - мы всё рассказываем и показываем на смене.
           </p>
         </div>
         <div class="btns">
@@ -45,7 +46,7 @@
   @import '../../assets/scss/variables';
   .about {
     width: 100%;
-    height: 100vh;
+    padding-bottom: 100px;
     background: no-repeat center/cover url('../../../public/images//background/about.jpg');
     position: relative;
     overflow: hidden;
@@ -67,7 +68,7 @@
         justify-content: space-between;
 
         div:first-of-type {
-          background-color: rgba(194, 255, 255, 0.7);
+          background-color: rgba(194, 255, 255, 0.8);
           padding: 30px;
           border-radius: 20px;
 
@@ -76,6 +77,15 @@
             font-size: 18px;
             font-weight: 500;
             line-height: 2rem;
+            span {
+              font-size: 18px;
+              font-weight: 700;
+              b {
+                font-size: 18px;
+                font-weight: 700;
+                color: $orange-color;
+              }
+            }
           }
         }
         .btns {
@@ -97,7 +107,7 @@
             border: none;
             box-shadow: var(--shd, 0 1px 4px rgba(0, 0, 0, 0.6));
             &:first-of-type {
-              background-color: #f3ac09;
+              background-color: $orange-color;
               font-size: 34px;
             }
           }
@@ -138,7 +148,7 @@
           }
 
           .glow-on-hover:active {
-            color: #f3ac09;
+            color: $orange-color;
           }
 
           .glow-on-hover:active:after {
@@ -165,7 +175,7 @@
     }
     .info-right {
       color: rgb(38, 67, 70);
-      background-color: rgba(194, 255, 255, 0.7);
+      background-color: rgba(194, 255, 255, 0.8);
       z-index: 1;
       width: 60%;
       text-align: center;
@@ -184,7 +194,7 @@
             font-family: 'Rubic', sans-serif;
             font-size: 40px;
             font-weight: 600;
-            color: #f3ac09;
+            color: $orange-color;
           }
         }
       }
@@ -208,5 +218,44 @@
     width: 100%;
     height: auto;
     rotate: 180deg;
+  }
+
+  @media (max-width: 1400px) {
+    .about {
+      .info {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 50px;
+
+        .info-left {
+          margin-right: 0;
+          width: 500px;
+        }
+        .info-right {
+          width: 700px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .about {
+      .info {
+        .info-left {
+          width: 90vw;
+          align-items: center;
+          .btns {
+            button {
+              &:last-of-type {
+                display: none;
+              }
+            }
+          }
+        }
+        .info-right {
+          width: 90vw;
+        }
+      }
+    }
   }
 </style>

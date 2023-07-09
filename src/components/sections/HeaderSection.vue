@@ -156,7 +156,7 @@
           span {
             font-weight: 500;
             font-size: 5vw;
-            color: #f3ac09;
+            color: $orange-color;
           }
         }
         h2 {
@@ -217,7 +217,7 @@
         }
 
         .glow-on-hover:active {
-          color: #f3ac09;
+          color: $orange-color;
         }
 
         .glow-on-hover:active:after {
@@ -350,7 +350,7 @@
           span {
             font-weight: 500;
             font-size: 8vh;
-            color: #f3ac09;
+            color: $orange-color;
           }
         }
         h2 {
