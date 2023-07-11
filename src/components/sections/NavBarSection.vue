@@ -53,6 +53,9 @@
 <style lang="scss" scoped>
   @import '../../assets/scss/variables';
   .navigation {
+    padding-bottom: 50px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 68px), 0 100%);
+
     .pictures {
       margin: 0 auto;
       display: flex;
@@ -141,10 +144,21 @@
     }
   }
 
+  @media (max-width: 1200px) {
+    .navigation {
+      clip-path: none;
+    }
+  }
+
   @media (max-width: 900px) {
     .navigation {
+      padding-bottom: 0;
+      clip-path: none;
+      .pictures {
+        display: none;
+      }
       ul {
-        margin-top: 50px;
+        margin-top: 20px;
         width: 95vw;
         height: 95vw;
         grid-template-columns: 1fr 1fr;
