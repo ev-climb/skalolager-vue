@@ -28,7 +28,40 @@
         <img src="images/logo/logo.png" alt="logo" />
       </div>
     </div>
-    <div class="advantages"></div>
+    <div class="advantages">
+      <div>
+        <img src="../../../public/images/icons/sport1.svg" alt="icon" />
+        <h3>СПОРТ</h3>
+        <p>
+          Ежедневные занятия скалолазанием. А также на сменах батуты, веревочный парк, стрельба из
+          лука, курс по узлам и установке палаток.
+        </p>
+      </div>
+      <div>
+        <img src="../../../public/images/icons/sport2.svg" alt="icon" />
+        <h3>ТВОРЧЕСТВО</h3>
+        <p>
+          Творческая сторона каждой смены - дети рисуют, лепят, клеят, поют, танцуют,
+          экспериментируют и ставят спектакли!
+        </p>
+      </div>
+      <div>
+        <img src="../../../public/images/icons/sport3.svg" alt="icon" />
+        <h3>ЗАБОТА</h3>
+        <p>
+          Двое вожатых на группу 10-15 детей. Трехразовое питание - завтрак, обед и полдник.
+          Прогулки и игры на свежем воздухе каждый день.
+        </p>
+      </div>
+      <div>
+        <img src="../../../public/images/icons/sport4.svg" alt="icon" />
+        <h3>ПОСТОЯНСТВО</h3>
+        <p>
+          Работаем круглый год во все школьные каникулы (летом, осенью, зимой и весной). Вы будете
+          успевать на работу вовремя! Возможно удобное посещение лагеря с 8:00 до 20:00.
+        </p>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -40,7 +73,6 @@
   @import '../../assets/scss/variables';
   .about {
     width: 100%;
-    padding-bottom: 100px;
     background: no-repeat center/cover url('../../../public/images//background/about.jpg');
     position: relative;
     overflow: hidden;
@@ -48,6 +80,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     clip-path: polygon(0 68px, 100% 0, 100% 100%, 0 100%);
     .info {
       display: flex;
@@ -202,6 +235,59 @@
       img {
         margin-top: 30px;
         width: 100px;
+      }
+    }
+    .advantages {
+      margin-top: 300px;
+      height: 350px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      width: 100%;
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+        img {
+          width: 30%;
+        }
+        h3 {
+          margin-top: 20px;
+          font-size: 25px;
+          font-weight: 500;
+          color: $white-color;
+        }
+        p {
+          margin: 10px 40px 50px;
+          font-size: 16px;
+          color: $white-color;
+          font-weight: 500;
+          text-align: center;
+        }
+        &:nth-of-type(1) {
+          background-color: rgb(13, 33, 35);
+        }
+        &:nth-of-type(2) {
+          background-color: rgb(44 111 118);
+        }
+        &:nth-of-type(3) {
+          background-color: rgb(84 182 192);
+          h3 {
+            color: #0d2123;
+          }
+          p {
+            color: #0d2123;
+          }
+        }
+        &:nth-of-type(4) {
+          background-color: #c2ffff;
+          h3 {
+            color: #0d2123;
+          }
+          p {
+            color: #0d2123;
+          }
+        }
       }
     }
   }
