@@ -94,13 +94,25 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    overflow: hidden;
-    position: relative;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 68px), 0% 100%);
     padding-bottom: 10%;
     margin: 0 auto;
     background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 7px; /* Высота тени */
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+    }
 
+    &::before {
+      bottom: 34px;
+      transform: rotate(-2.7deg);
+    }
     .headerContainer {
       margin-top: 50px;
       display: grid;

@@ -1,9 +1,6 @@
 <template>
   <section class="navigation">
-    <div class="pictures">
-      <img src="/images/nav/pic.svg" alt="paint" />
-      <img src="images/logo/logo.png" alt="logo" />
-    </div>
+    <img src="images/logo/logo.png" alt="logo" class="logo" />
     <ul>
       <li v-for="nav in navigation" :key="nav.text">
         <img :src="nav.url" :alt="nav.text" />
@@ -15,6 +12,8 @@
 </template>
 
 <script>
+  import { gsap } from 'gsap';
+
   export default {
     data() {
       return {
@@ -47,48 +46,70 @@
         ],
       };
     },
+    mounted() {
+      window.addEventListener('load', () => {
+        const logo = this.$el.querySelector('.logo');
+
+        gsap.set(logo, { x: -logo.offsetWidth, y: -260, rotation: 0 });
+
+        // Анимация движения вправо и вращения как колесо
+        gsap.to(logo, {
+          x: '+=90vw',
+          y: '-=50',
+          rotation: '-365', // Добавляем 360 градусов вращения (полный оборот)
+          repeat: 0,
+          yoyo: false,
+          duration: 2,
+          ease: 'ease-in',
+        });
+
+        gsap.to(logo, {
+          y: '+=100px', // Используем 30% вместо '+=300'
+          repeat: 0,
+          delay: 2.2,
+          duration: 1,
+          ease: 'bounce.out',
+        });
+      });
+    },
   };
 </script>
 
 <style lang="scss" scoped>
   @import '../../assets/scss/variables';
   .navigation {
-    padding-bottom: 50px;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 68px), 0 100%);
+    height: 80vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
 
-    .pictures {
-      margin: 0 auto;
-      display: flex;
-      width: 85%;
-      justify-content: space-between;
-      align-items: end;
-      img {
-        &:first-of-type {
-          width: 60%;
-        }
-        &:last-of-type {
-          width: 25vw;
-        }
-      }
+    .logo {
+      width: 8vw;
+      position: absolute;
     }
     ul {
-      margin: 90px auto 50px;
+      margin-left: 10vw;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      width: 85%;
-      height: 44vw;
+      gap: 1vw;
+      width: 60%;
+      height: 31vw;
       list-style: none;
+      transform: rotate(-3deg);
       li {
         display: flex;
         flex-direction: column;
         text-align: center;
         justify-content: center;
         color: $white-color;
-        font-size: 4vw;
+        font-size: 2.7vw;
         text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;
         position: relative;
         background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 1vw;
         overflow: hidden;
         transition: all 0.3s ease-in;
         cursor: pointer;
@@ -100,11 +121,11 @@
         }
 
         span {
-          font-size: 4vw;
+          font-size: 2.7vw;
           font-weight: 500;
           transition: all 0.3s ease-in;
           b {
-            font-size: 4vw;
+            font-size: 2.7vw;
             font-weight: 500;
             color: $orange-color;
             transition: all 0.3s ease-in;
@@ -112,11 +133,11 @@
         }
         &:hover {
           background-color: rgba(0, 0, 0, 0.7);
-          font-size: 3.8vw;
+          font-size: 2.6vw;
           span {
-            font-size: 3.8vw;
+            font-size: 2.6vw;
             b {
-              font-size: 3.8vw;
+              font-size: 2.6vw;
             }
           }
         }
