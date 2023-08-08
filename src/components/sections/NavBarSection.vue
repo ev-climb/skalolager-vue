@@ -47,30 +47,39 @@
       };
     },
     mounted() {
-      window.addEventListener('load', () => {
-        const logo = this.$el.querySelector('.logo');
+      window.addEventListener('scroll', this.handleScroll);
+    },
+    methods: {
+      handleScroll() {
+        // Проверяем, проскролил ли пользователь больше или равно 200px
+        if (window.scrollY >= 300) {
+          const logo = this.$el.querySelector('.logo');
 
-        gsap.set(logo, { x: -logo.offsetWidth, y: -260, rotation: 0 });
+          gsap.set(logo, { x: -logo.offsetWidth, y: -260, rotation: 0 });
 
-        // Анимация движения вправо и вращения как колесо
-        gsap.to(logo, {
-          x: '+=90vw',
-          y: '-=50',
-          rotation: '-365', // Добавляем 360 градусов вращения (полный оборот)
-          repeat: 0,
-          yoyo: false,
-          duration: 2,
-          ease: 'ease-in',
-        });
+          // Анимация движения вправо и вращения как колесо
+          gsap.to(logo, {
+            x: '+=90vw',
+            y: '-=50',
+            rotation: '-725', // Добавляем 360 градусов вращения (полный оборот)
+            repeat: 0,
+            yoyo: false,
+            duration: 2,
+            ease: 'ease-in',
+          });
 
-        gsap.to(logo, {
-          y: '+=100px', // Используем 30% вместо '+=300'
-          repeat: 0,
-          delay: 2.2,
-          duration: 1,
-          ease: 'bounce.out',
-        });
-      });
+          gsap.to(logo, {
+            y: '+=100px',
+            repeat: 0,
+            delay: 2.2,
+            duration: 1,
+            ease: 'bounce.out',
+          });
+
+          // После запуска анимации удаляем обработчик, чтобы анимация не запускалась снова
+          window.removeEventListener('scroll', this.handleScroll);
+        }
+      },
     },
   };
 </script>
